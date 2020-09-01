@@ -1,0 +1,13 @@
+.home{
+  padding: 20px;
+  .article{
+    display: flex;
+    flex-direction: column;
+     flex-wrap: wrap;
+    .art-img{
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+}
