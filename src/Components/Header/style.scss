@@ -1,4 +1,24 @@
-.header{
+.top-header{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  background-color: #404040;
+  padding: 15px 25px;
+  .logo {
+    span {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .main-menu {
+    a {
+      padding: 8px 12px;
+      color: #ffffff;
+      font-size: 16px;
+      margin-left: 6px;
+      &:hover, &.active {
+        background-color: #666666;
+      }
+    }
+  }
 }

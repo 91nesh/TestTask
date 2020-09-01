@@ -1,7 +1,99 @@
 .friends{
-  padding: 20px;
   .profile{
     width: 100px;
     height: 100px;
+  }
+  .ui.grid {
+    &.friends-block {
+      padding: 0;
+      margin: 0;
+      .ui.grid {
+        margin: 0;
+      }
+      .friends-list {
+        margin-bottom: 30px;
+        width: 25%;
+        @media screen and (min-width: 768px) and (max-width: 991px){
+          width: 33.33%;
+        }
+        @media screen and (max-width: 767px){
+          width: 50%;
+        }
+        @media screen and (max-width: 480px){
+          width: 100%;
+        }
+        .friends-card {
+          flex-direction: row;
+          align-items: center;
+          border: none;
+          overflow: hidden;
+          cursor: pointer;
+          box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+          &:hover {
+            box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+            .content {
+              .header {
+                color: #666666;
+              }
+            }
+          }
+          .image {
+            border-radius: 4px 0 0 4px !important;
+          }
+          .content {
+            border: none;
+            .header {
+              color: #404040;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.ui.grid {
+  &.user-details {
+    margin: 1rem;
+  }
+}
+.ui {
+  &.user-details {
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+    &-img {
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+    .description {
+      .details {
+        display: flex;
+        justify-content: center;
+
+        .label {
+          flex: 1 0 100%;
+          max-width: 75px;
+          justify-content: flex-end;
+          display: flex;
+          margin-right: 10px;
+        }
+
+        .name {
+          font-weight: 600;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      @media screen and (max-width: 991px){
+       padding-top: 1rem;
+      }
+    }
   }
 }
