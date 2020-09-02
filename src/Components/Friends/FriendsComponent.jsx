@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Card, Image, Container , Modal , Label } from 'semantic-ui-react';
+import { Grid, Card, Image, Container , Modal } from 'semantic-ui-react';
 import Header from '../Header/HeaderComponent'
-import data from "../../JsonData/friends.json";
+import { FriendsData } from "../../JsonData/friendsDetails";
 import './style.scss';
 
 export const Friends = () => {
@@ -13,14 +13,14 @@ export const Friends = () => {
                     <Grid>
                         <Grid.Row>
                             {
-                                data.map((friend) => {
+                                FriendsData.map((friend,index) => {
                                     return <Modal
                                         trigger={
                                             <Grid.Column className="friends-list">
                                                 <Card fluid className="friends-card">
                                                     <Image src={friend.image} alt="" className="profile"/>
                                                     <Card.Content>
-                                                        <Card.Header>{friend.author}</Card.Header>
+                                                        <Card.Header>{friend.name}</Card.Header>
                                                     </Card.Content>
                                                 </Card>
                                             </Grid.Column>
@@ -35,15 +35,15 @@ export const Friends = () => {
                                                           <Card.Description>
                                                               <div className="details">
                                                                   <span className="label">Name :</span>
-                                                                  <span className="name">{friend.author}</span>
+                                                                  <span className="name">{friend.name}</span>
                                                               </div>
                                                               <div className="details">
                                                                   <span className="label">BirthDate :</span>
-                                                                  <span className="name">{friend.date}</span>
+                                                                  <span className="name">{friend.dateOfBirth}</span>
                                                               </div>
                                                               <div className="details">
                                                                   <span className="label">Age :</span>
-                                                                  <span className="name">{friend.Age}</span>
+                                                                  <span className="name">{friend.age}</span>
                                                               </div>
                                                               <div className="details">
                                                               <span className="label">JobType :</span>
@@ -57,6 +57,7 @@ export const Friends = () => {
                                         }
                                         size="tiny"
                                         actions={['Close']}
+                                        key={index}
                                     />
 
                                 })

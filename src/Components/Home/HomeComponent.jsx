@@ -1,14 +1,11 @@
-import React , {useState} from 'react';
+import React  from 'react';
 import { Container, Grid, Card, Image } from 'semantic-ui-react'
 import Header from '../Header/HeaderComponent'
-import data from "../../JsonData/articles.json";
+import { HomeData } from "../../JsonData/homeDetails";
+import ReadMoreText from "../ReadMoreText/index";
 import './style.scss';
 
 export const Home = () => {
-    const [ showMore,setShowMore ] = useState({ id: null,open: false });
-    const handleShowMore = (id) =>{
-        setShowMore({ id , open: true })
-    }
     return (
         <div className="home">
             <Header/>
@@ -18,18 +15,17 @@ export const Home = () => {
                         <Grid columns={1} className="article-block-wrp">
                             <Grid.Row>
                                     {
-                                        data.map((article) =>
-                                        <Grid.Column className="article-col">
+                                        HomeData.map((article,index) =>
+                                        <Grid.Column className="article-col" key={index}>
                                             <Card fluid>
                                                 <Card.Content className="article-img">
                                                     <Image src={article.image}/>
                                                 </Card.Content>
                                                 <Card.Content className="article-content">
                                                     <Card.Header>{article.author}</Card.Header>
-                                                    <Card.Description className={showMore.id !== article.id && !showMore.open && "home-desc"}>
-                                                        { (showMore.id === article.artId && showMore.open) || article.description.length <= 400  ? article.description : article.description.substring(0, 400) + "..."}
+                                                    <Card.Description>
+                                                        <ReadMoreText minHeight="90px" text={article.description} />
                                                     </Card.Description>
-                                                    {article.description.length > 400 && showMore.id !== article.artId &&<button className="ui button btn-show" onClick={() => handleShowMore(article.artId)}>Show More</button>}
                                                 </Card.Content>
                                             </Card>
                                         </Grid.Column>

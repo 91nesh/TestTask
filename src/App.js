@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import { Home,Friends } from './Components/index'
-import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 
 const App = () => {
